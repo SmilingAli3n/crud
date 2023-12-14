@@ -1,4 +1,4 @@
-module crud
+module github.com/SmilingAli3n/crud
 
 go 1.20
 
