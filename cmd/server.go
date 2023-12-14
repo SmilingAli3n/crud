@@ -1,4 +1,4 @@
-package server
+package cmd
 
 import (
 	"fmt"
@@ -24,7 +24,7 @@ func init() {
 	})
 }
 
-func Run() {
+func RunServer() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/ticket/", ticketHandler)
 	mux.HandleFunc("/tickets", allTicketsHandler)
