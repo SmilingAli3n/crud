@@ -81,6 +81,9 @@ func CreateTicket(r *http.Request, resp *response.Response) { //w http.ResponseW
 		resp.StatusCode = http.StatusInternalServerError
 		log.Print(err)
 	}
+	if t.Time == "" {
+		t.Time = "0001-01-01 00:00:00"
+	}
 	err = t.Create()
 	if err != nil {
 		if errors.Is(err, entities.ErrInternal) {
