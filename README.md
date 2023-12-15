@@ -1,5 +1,5 @@
 CRUD-приложение для работы с заявками (тикетами). Запуск:                                                           
-package main
+```package main
 
 import(
     "github.com/SmilingAli3n/crud/cmd"
