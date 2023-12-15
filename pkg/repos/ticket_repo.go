@@ -6,7 +6,6 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"fmt"
 
 	"github.com/SmilingAli3n/crud/pkg/cache"
 	"github.com/SmilingAli3n/crud/pkg/entities"
@@ -82,7 +81,6 @@ func CreateTicket(r *http.Request, resp *response.Response) { //w http.ResponseW
 		resp.StatusCode = http.StatusInternalServerError
 		log.Print(err)
 	}
-	fmt.Println(t.Time)
 	if t.Time == "" {
 		t.Time = "0001-01-01 00:00:00"
 	}
