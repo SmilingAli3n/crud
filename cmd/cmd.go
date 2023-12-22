@@ -33,16 +33,16 @@ func RunServer() {
 }
 
 func allTicketsHandler(w http.ResponseWriter, req *http.Request) {
+	resp := response.New()
+	defer resp.Send(w)
 	if !auth.Authorized(req) {
-		http.Error(w, "Unauthorized", http.StatusUnauthorized)
+		resp.StatusCode = http.StatusUnauthorized
 		return
 	}
 	if req.URL.Path != "/tickets" {
 		log.Print("Request URL must not contain any params")
 		return
 	}
-	resp := response.New()
-	defer resp.Send(w)
 	if req.Method == http.MethodPost {
 		repos.CreateTicket(req, resp)
 	} else if req.Method == http.MethodGet {
